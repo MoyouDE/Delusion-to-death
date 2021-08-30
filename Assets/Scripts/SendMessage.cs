@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SendMessage : MonoBehaviour
 {
-    public string key;
+    public List<string> key;
     public void sendMessage()
     {
         if (key!=null)

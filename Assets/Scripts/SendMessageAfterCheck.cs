@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class SendMessageAfterCheck : MonoBehaviour
 {
-    public string key;
-    private delegate void ConditionCheck();
+    public List<String> key;
     public void sendMessage()
     {
         Type t = Type.GetType("SendMessageAfterCheck");
         if (key != null)
         {
-            System.Reflection.MethodInfo method = t.GetMethod(key);
+            System.Reflection.MethodInfo method = t.GetMethod(key[0]);
             method.Invoke(this, null);
         }
     }
