@@ -16,29 +16,25 @@ public class Messages : MonoBehaviour
         //}
     }
 
-    private string FileCSV(string _str)
+    private string[] FileCSV(string _str)
     {
-        string path = "";
-#if UNITY_EDITOR
-        path = Application.dataPath + "/Messages/" + _str + ".csv";
-#endif
-        return path;
+    //è¯»å–csväºŒè¿›åˆ¶æ–‡ä»¶
+    TextAsset binAsset = Resources.Load (_str, typeof(TextAsset)) as TextAsset;
+    //è¯»å–æ¯ä¸€è¡Œçš„å†…å®¹
+    string [] lineArray = binAsset.text.Split ("\n"[0]);
+    return lineArray;
     }
 
     private void readCSV()
     {
-        string path = FileCSV("messages");
-        if (File.Exists(path))
+        string[] File = FileCSV("messages");
+        if (File!=null)
         {
-            StreamReader srReadFile = new StreamReader(path);
-            srReadFile.ReadLine();//ºöÂÔµÚÒ»ĞĞ
-            while (!srReadFile.EndOfStream)
+            for(int i =2;i < File.Length; i++)
             {
-                string[] value = srReadFile.ReadLine().Split(',');
-                messages.Add(value[1], value[2]);               
+                string[] value = File[i].Split(',');
+                messages.Add(value[0], value[1]);
             }
-            // ¹Ø±Õ¶ÁÈ¡Á÷ÎÄ¼ş
-            srReadFile.Close();
         }
     }
 }

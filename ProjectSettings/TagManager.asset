@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - UI_Masl
   - 
   - 
   - 
@@ -41,6 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
+  - name: UI
     uniqueID: 2617536663
+    locked: 0
+  - name: UI_Button
+    uniqueID: 1706149819
+    locked: 0
+  - name: Control_Mask
+    uniqueID: 1001465511
+    locked: 0
+  - name: System_Button
+    uniqueID: 2876703981
+    locked: 0
+  - name: Img_Mask
+    uniqueID: 216903971
     locked: 0
