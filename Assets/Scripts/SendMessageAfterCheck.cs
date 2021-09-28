@@ -6,6 +6,7 @@ using UnityEngine;
 public class SendMessageAfterCheck : MonoBehaviour
 {
     public List<String> key;
+    public List<String> Conkey;
     public State state;
     private Dictionary<string,bool> conditions;
     public void sendMessage()
@@ -25,12 +26,18 @@ public class SendMessageAfterCheck : MonoBehaviour
             if(kv.Value==false){
                 List<string> tmp = new List<string>();
                 tmp.Add(key[0]);
+                if(Conkey[0]!=null){
+                    if(state.conditions[Conkey[0]])return;
+                }
                 SendMessageUpwards("GetMessage", tmp, SendMessageOptions.DontRequireReceiver);
                 return;
             }
         }
         List<string> tmp1 = new List<string>();
         tmp1.Add(key[1]);
+         if(Conkey[0]!=null){
+            if(state.conditions[Conkey[1]])return;
+            }
         SendMessageUpwards("GetMessage", tmp1, SendMessageOptions.DontRequireReceiver);
     }
 }
